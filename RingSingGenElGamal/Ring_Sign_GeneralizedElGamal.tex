@@ -1,0 +1,187 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+%\usepackage{tkz-base,tkz-fct}
+%\usetikzlibrary{automata, arrows}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{authblk}
+\usepackage{multicol}
+\usepackage{paralist}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{thmtools,thm-restate}
+\usepackage[centertags]{amsmath}
+\usepackage{algorithm,algorithmic}
+\usepackage{hyperref}
+\usepackage{amsthm}
+%\usepackage[centertags]{amsmath}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{proof}[theorem]{Proof}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\begin{document}
+
+\title{Ring Signature Based on Generalized ElGamal Signature Scheme}
+\author{\scriptsize{Demba Sow$^{1}$ and Mohamed MANDIANG$^{2}$}}
+\affil{D\'epartement de Math\'ematiques et Informatique, FST, UCAD$^{1}$\\
+{\texttt{demba1.sow@ucad.edu.sn$^{1}$}}
+\\ Section Math\'ematiques Appliqu\'ees, UFR SAT, UGB$^{2}$\\
+ {\texttt{mohamed.sn@gmail.com$^{2}$}}}
+
+\maketitle
+
+
+\tableofcontents
+
+    \begin{abstract}
+
+    \end{abstract}
+
+\section{Introduction}
+
+\paragraph{Contributions:} Our main aim is ...
+
+\begin{itemize}
+ \item
+ \item
+ \item
+\end{itemize}
+
+\paragraph{Related works:} Ring Signatures schemes ...
+
+In~\cite{ringsignOrigine}
+
+In~\cite{Elgamal}, ...
+
+
+In~\cite{ringSignElG}, ...
+
+
+In~\cite{sow}, ...
+
+
+
+\paragraph{Outline:} This paper is organized as follows:
+\begin{itemize}
+ \item In Section~\ref{sec:two}, ...
+ \item In Section~\ref{sec:three}, ...
+ \item In Section~\ref{sec:four}, ...
+\end{itemize}
+
+
+\section{Preliminaries}\label{sec:two}
+
+\subsection{Ring Signature}\label{sec:two:1}
+
+\subsection{Security Notions}\label{sec:two:2}
+
+\subsection{Generalized ElGamal Signature}\label{sec:two:2}
+We present the key generation mechanism, the signature and verification
+algorithms~\cite{sow}, which can be view as a slight modification of
+ElGamal's scheme~\cite{Elgamal}.
+
+\paragraph{Key generation algorithm.}
+    To create a public/private key, we do the following:
+\begin{itemize}
+    \item Select a cyclic group $G$ with sufficiently large order $d$ such that $G=\langle g \rangle$.
+
+    \item Select two random integers $r$ and $k$ sufficiently large
+      such that $ 2 < k < d$ and $r$ of size half the size of $d$ and compute $kd$.
+    \item Compute with Euclidean division algorithm, the pair $(s,t)$
+      such that $kd= rs+t$ where $t = kd \mod s$.
+
+    \item  Compute $\gamma = g^{s} $ and $\delta = g^{t} $ in $G$; Note that $\gamma \neq 1$ and $\delta \neq 1$.
+\end{itemize}
+Then public key is $((\gamma, \delta), G)$ and the private key is $( r, G)$.
+
+\paragraph{Signature algorithm.}
+    To sign a message $m$ with the private key $(r, G)$, we do the following:
+\begin{enumerate}
+    \item Choose a random integer $2<\beta< n=\#G$ such that $\gcd( \beta, n)=1$, $ \beta$ and $d - \beta$  must be sufficiently large;
+
+    \item Compute $R=(g^{s})^{r  \beta}$ in $G$, $H(h(R))$, $(r  \beta)^{-1} \mod n$ and $ s^{-1}t \mod n$;
+
+    \item Compute $S= (r  \beta)^{-1} \{H(h(m)) - s^{-1}tH(h(R))\} \mod n$; if $S=0$ or $S=1$, return to stage 2;
+
+    \item Output $(R, S)$ as the signature of $m$.
+
+\end{enumerate}
+
+\paragraph{Verification algorithm.}
+ To verify a signture $(R, S)$ of a message $m$, we do the following:
+ 
+ \begin{enumerate}
+    \item Take $(\gamma, \delta, G)=((g^{s},g^{t}), G)$ the public key and $(R, S)$ the signature of $m$;
+
+    \item Compute $V_{1}= (g^{t})^{H(h(R))}R^{S} $  and  $V_{2}= (g^{s})^{H(h(m))}$  in $G$;
+
+    \item The signature is valid if $V_{1}=V_{2}$;
+ 
+\end{enumerate}
+
+\section{Ring Signature Based on ElGamal Signature}\label{sec:three}
+
+\paragraph{Key Generation}
+    \begin{itemize}
+      \item 
+    \end{itemize}
+
+\paragraph{Signature Algorithm}
+
+    \begin{itemize}
+      \item 
+    \end{itemize}
+
+\paragraph{Verification Algorithm}
+    
+    \begin{itemize}
+      \item 
+    \end{itemize}
+
+
+\section{Ring Signature Based on Generalized ElGamal Signature}\label{sec:four}
+
+\paragraph{Key Generation}
+
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+\paragraph{Signature Algorithm}
+     
+
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+\paragraph{Verification Algorithm}
+    
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+\paragraph{Correctness}
+    \begin{itemize}
+      \item 
+
+      \item 
+    \end{itemize}
+
+\section*{\textbf{Conclusion}}
+
+\bibliographystyle{alpha}
+\bibliography{biblio}
+
+\end{document}
+
