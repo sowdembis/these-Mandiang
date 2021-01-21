@@ -139,15 +139,34 @@ Email: mandiang.sn@gmail.com
 
 
 \section{Schémas de Signatures en Anneau}
+Le concept de signature d'anneau a été introduit formellement pour la première fois par Rivest, Shamir et Tauman. Comme indiqué par ces derniers dans leur article \cite{ring2001signature}, le but premier de cette signature est de permettre la fuite d'information.\\
+Les signatures en anneau permettent  à un utilisateur de signer anonymement au sein d'un groupe de personnes, détenant tous une paire de clés privée et publique, de telle sorte que le destinataire ne puisse identifier le membre à l'origine de la signature.
 
 \subsection{Contexte}
+De nos jours, les transactions qui s'effectuaient par lettres, par téléphone ou par contact direct entre deux personnes se font de plus en plus par l'intermédiaire de réseaux de communications électroniques. Nos smart-phones, ordinateurs sont connectés grâce aux modems, aux fibres optiques et aux réseaux téléphoniques, on s'envoie des fax et l'on utilise les réseaux sociaux.\\\\
+Les informations circulent entre les machines et portables sans qu'il y ait nécessairement intervention humaine, et il est de plus en plus facile d'altérer un message ou d'usurper une identité.\\\\
+Ces problèmes de sécurité sont heureusement résorbés par la signature numérique telle que la signature en anneau.
 
 \subsection{Principe de la signature en anneau}
-
+Les signatures d'anneau ont été définies par ces précurseurs à l'aide de deux algorithmes: l'un pour signer un message et l'autre pour vérifier la validité de la signature.\\\\
+Le signataire construit son anneau à partir de membres possédant déjà des clés de signature \cite{Sign2007Emil}. Il utilise les paramètres de ces schémas de signature pour signer son message. La description d'un schéma de signature d'anneau comporte un algorithme de génération de clé propre à chaque membre.\\\\
+Un anneau $ R $ est noté $ R=(pk_1,...,pk_n) $ et $ R[i]=pk_i $ et on dit que $ pk \in R $ s'il existe $ i $ tel que $ R[i]=pk $.\\\\
+Un schéma de signature d'anneau se construit à l'aide des procédures suivantes \cite{BKM2006Ring} :
+\begin{itemize}
+	\item $ Gen(1^{k}) $, algorithme probabiliste de génération de clés. Il prend en entrée un paramètre de sécurité $ k $ et renvoie une clé publique $ pk $ et une clé secrète $ sk $.
+	\item $ RSign_{s,sk}(m,R) $, algorithme probabiliste qui produit une signature d?anneau $\sigma$ sur le message $ m $, en prenant en entrée l'anneau $ R=(pk_1,...,pk_n) $. On suppose que :
+	\begin{itemize}
+		\item $ (R[s],sk) $ est une paire de clés publique/privée, renvoyée par $ Gen $,
+		\item l'anneau est composé d'au moins deux clés publiques distinctes et
+		\item toutes les clés publiques de l'anneau sont différentes.
+	\end{itemize}
+	$ RVerify_{R}(m,\sigma) $, algorithme déterministe vérifiant la validité de la signature $\sigma$ sur le message $ m $. Il renvoie 1 si la signature est valide, 0 sinon.
+\end{itemize}
 \section{Problématique et Objectifs}
 
 \subsection{Problématique}
-
+la signature d'anneau ne requiert pas de procédure d'initialisation particulière. De plus, elle permet de signer sans la coopéraion des dautres membres de l'anneau et fournit ainsi, un anonymat inconditionnel pour le signataire car n'existant pas de procédure de révocation. Cette absence de révocation peut, pour des personnes mal-intentionnées, entraîner des utilisations abusives.\\\\
+C'est dans cette brèche que nous n
 \subsection{Objectifs Scientifiques}
 
 \subsection{Méthodologie de recherche}
