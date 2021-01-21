@@ -145,7 +145,13 @@ Les signatures en anneau permettent  à un utilisateur de signer anonymement au s
 \subsection{Contexte}
 De nos jours, les transactions qui s'effectuaient par lettres, par téléphone ou par contact direct entre deux personnes se font de plus en plus par l'intermédiaire de réseaux de communications électroniques. Nos smart-phones, ordinateurs sont connectés grâce aux modems, aux fibres optiques et aux réseaux téléphoniques, on s'envoie des fax et l'on utilise les réseaux sociaux.\\\\
 Les informations circulent entre les machines et portables sans qu'il y ait nécessairement intervention humaine, et il est de plus en plus facile d'altérer un message ou d'usurper une identité.\\\\
-Ces problèmes de sécurité sont heureusement résorbés par la signature numérique telle que la signature en anneau.
+Ces problèmes de sécurité sont heureusement résorbés par la signature numérique telle que la signature en anneau.\\
+Cette dernière proposée par Rivest et al. a connu de nombreuses variantes. On peut citer entre autres:
+\begin{itemize}
+	\item Signature d'anneau à seuil \cite{BSS2002Ring}
+	\item Signature d'anneau à seuil amélioré basée sur les codes correcteurs d'erreurs \cite{CayVer2012Ring} 
+	\item Signature d'anneau à accès général \cite{Naor2002Ring}
+\end{itemize}
 
 \subsection{Principe de la signature en anneau}
 Les signatures d'anneau ont été définies par ces précurseurs à l'aide de deux algorithmes: l'un pour signer un message et l'autre pour vérifier la validité de la signature.\\\\
@@ -165,15 +171,16 @@ Un schéma de signature d'anneau se construit à l'aide des procédures suivantes \
 \section{Problématique et Objectifs}
 
 \subsection{Problématique}
-la signature d'anneau ne requiert pas de procédure d'initialisation particulière. De plus, elle permet de signer sans la coopéraion des dautres membres de l'anneau et fournit ainsi, un anonymat inconditionnel pour le signataire car n'existant pas de procédure de révocation. Cette absence de révocation peut, pour des personnes mal-intentionnées, entraîner des utilisations abusives.\\\\
-C'est dans cette brèche que nous n
+la signature d'anneau ne requiert pas de procédure d'initialisation particulière. De plus, elle permet de signer sans la coopéraion des dautres membres de l'anneau et fournit ainsi, un anonymat inconditionnel pour le signataire car n'existant pas de procédure de révocation. Cette absence de révocation peut, pour des personnes mal-intentionnées, entraîner des utilisations abusives.\\
+Et c'est cette brèche qui a conduit à de nombreuses variantes cherchant à limiter le pouvoir du signataire.
 \subsection{Objectifs Scientifiques}
-
+Notre travail se focalisera sur les aspects tant théoriques que pratiques des schémas de signature en anneau. Nous étudierons de nouvelles variantes de schémas de signature et leurs usages.
 \subsection{Méthodologie de recherche}
 La recherche couvrira tous les aspects théoriques et pratiques de la question, notamment :
 \begin{itemize}
-	\item 
-    \item 
+	\item les aspects défitionnels, par un état de l'art des variantes de schémas de signatures en anneau en exhibant leurs éventuelles limites;
+    \item les aspects cryptographiques théoriques et pratiques, par l'élaboration de nouvelles variantes de shémas de signatures en anneau et leurs implémentations et
+    \item les aspects sécuritaires, par l'analyse des modèles proposés
 \end{itemize}
 
 
